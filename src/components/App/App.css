@@ -6,6 +6,7 @@
   background-attachment: fixed;
   background-position: center;
   position: relative;
+  justify-content: center;
 }
 
 .app {
@@ -14,4 +15,15 @@
   font-family: 'Work Sans', sans-serif;
   font-weight: 500;
   color: #fff;
+}
+
+.app h1{
+  text-align: center;
+}
+
+.app-playlist {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10rem;
 }
