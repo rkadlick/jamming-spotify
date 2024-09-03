@@ -82,7 +82,9 @@ const App: React.FC = () => {
           </div>
         </>
       )}
-      <div className='made-by'>Created by RK</div>
+      <button className="made-by" onClick={() => window.open('https://www.ryanismy.name', '_blank')}>
+  Created by RK
+</button>
     </div>
   );
 };

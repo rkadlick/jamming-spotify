@@ -57,7 +57,7 @@
   margin: auto;
   }
 
-  .sign-in-button:hover {
+  .sign-in-button:hover, .made-by:hover {
     background-color: rgba(108, 65, 233, .7);
     }
 
@@ -69,7 +69,11 @@
     background-color: rgba(0, 0, 0, 0.7); /* Optional: Add a background */
     color: #fff; /* Optional: Change text color */
     font-size: 0.9rem; /* Optional: Adjust font size */
-    border-radius: 5px; /* Optional: Add rounded corners */
+    transition: background-color .25s;
+    border-radius: 54px;
+	background-color: #010c3f;
+	text-align: center;
+  border: 0px;
 }
 
 @media only screen and (max-width: 1020px) {
