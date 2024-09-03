@@ -1,50 +1,42 @@
-# React + TypeScript + Vite
+# Jamming
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Jamming is a useless React app for creating new playlists with Spotify.
 
-Currently, two official plugins are available:
+![image](https://raw.githubusercontent.com/rkadlick/jamming-spotify/public/screenshot.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Codecademy
 
-## Expanding the ESLint configuration
+Built as a portfolio project of the [Codecademy Front-End Engineer Path](https://www.codecademy.com/career-journey/front-end-engineer) and [Codecademy Full-Stack Engineer Path](https://www.codecademy.com/career-journey/full-stack-engineer).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+* Spotify Login — before a user searches for a song, album, or artist, they will click a button to login or setup a Spotify Account
+* Search by Song, Album, or Artist — a user can type the name of a song, artist, or album into the search bar and click the SEARCH button.
+* Populate Results List — Jammming displays the list of returned tracks from the user’s query.
+* Add Song to a Custom Playlist — users can add a track to their playlist by selecting a + sign on the right side of the track’s display container.
+* Remove Song from Custom Playlist — users can remove a track from their playlist by selecting a - sign on the right side of the track’s display container.
+* Change Playlist Title — users can change the title of their custom playlist.
+* Save Playlist to Account — users can save their custom playlist by clicking a button called SAVE TO SPOTIFY.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Technology used
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+* HTML
+* CSS
+* React
+* Typescript
+* Git
+* Spotify API
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Codecademy Instructions
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Intro
+
+> In this project, you will build a React web application called Jammming. You will use your knowledge of React components, passing state, and requests with the Spotify API to build a website that allows users to search the Spotify library, create a custom playlist, then save it to their Spotify account.
+
+### Requirements
+
+> * Build a web app using React
+> * Version control your application with Git and host the repository on Github
+> * Integrate with Spotify or another API
+> * Deploy your application
+> * Write a README (using Markdown) that documents your project, including : Purpose of project, technologies used, features, future work.
