@@ -1,16 +1,26 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react';
 import './SearchBar.css'
 
-function App() {
+function SearchBar(props) {
+
+  const [term, setTerm] = useState("");
+
+  const handleTermChange = useCallback((event) => {
+    setTerm(event.target.value);
+  }, []);
+
+  const search = useCallback(() => {
+    props.onSearch(term);
+  }, [props.onSearch, term]);
 
   return (
-    <div className="SearchBar">
-      <input placeholder="Enter A Song Title" />
-      <button className="SearchButton">
+    <div className="search-bar">
+      <input placeholder="Enter A Song Title" onChange={handleTermChange} />
+      <button className="search-button" onClick={search}>
         SEARCH
       </button>
     </div>
   )
 }
 
-export default App
+export default SearchBar

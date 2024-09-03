@@ -5,22 +5,23 @@ import "./Playlist.css";
 import TrackList from "../TrackList/TrackList";
 
 const Playlist = (props) => {
-  {/* const handleNameChange = useCallback(
+  const handleNameChange = useCallback(
     (event) => {
       props.onNameChange(event.target.value);
     },
-    [props.onNameChange]
-  ); */}
+    [props]
+  );
 
 
   return (
     <div className="playlist">
-      <input defaultValue={"New Playlist"} />
+      <input onChange={handleNameChange} defaultValue={"New Playlist"} />
       <TrackList
       tracks={props.playlistTracks}
 		  isRemoval={true}
+      onRemove={props.onRemove}
       />
-      <button className="playlist-save">
+      <button className="playlist-save" onClick={props.onSave}>
         SAVE TO SPOTIFY
       </button>
     </div>

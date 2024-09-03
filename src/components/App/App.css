@@ -1,29 +1,75 @@
-#root{
-  height: 100%;
-  width: 100%;
-  background-image: url('../../assets/sky_background.png'); /* Replace with your image URL */
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  position: relative;
+.app {
+  height: fit-content;
+  padding: 10rem 0;
+  font-family: 'Karla', sans-serif;
+  font-weight: 500;
+  color: #fff;
+
+}
+
+.heading {
+  display: flex;
   justify-content: center;
 }
 
-.app {
-  height: 100%;
-  padding: 0 17% 10% 17%;
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 500;
-  color: #fff;
+.heading > svg {
+  align-self: center;
+  padding-left: 1rem;
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.7); /* X, Y, blur, color */
 }
 
 .app h1{
   text-align: center;
+  margin-top: 3rem;
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.7); /* X, Y, blur, color */
+    z-index: 1; /* Ensure it stays above the background image */
 }
+
 
 .app-playlist {
   display: flex;
   justify-content: space-between;
   width: 100%;
   gap: 10rem;
+  margin: 3rem auto;
 }
+
+.sign-in-button {
+	cursor: pointer;
+	width: 8.11rem;
+	padding: .77rem 0;
+	border-radius: 54px;
+	background-color: #010c3f;
+	text-align: center;
+	font-size: .833rem;
+	transition: background-color .25s;
+	border: 0px;
+	color: #fff;
+	font-weight: 500;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  }
+
+  .sign-in-button:hover {
+    background-color: rgba(108, 65, 233, .7);
+    }
+
+  .made-by {
+    position: fixed;
+    bottom: 10px; /* Adjust for more/less space */
+    right: 10px; /* Adjust for more/less space */
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Optional: Add a background */
+    color: #fff; /* Optional: Change text color */
+    font-size: 0.9rem; /* Optional: Adjust font size */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+@media only screen and (max-width: 1020px) {
+	.app-playlist {
+	  flex-direction: column;
+    align-items: center;
+    gap:4rem;
+	}
+  }
