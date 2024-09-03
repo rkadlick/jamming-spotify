@@ -34,8 +34,6 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
-  height: 100%;
   width: 100%;
   background-image: url('./assets/sky_background.png'); /* Replace with your image URL */
   background-size: cover;

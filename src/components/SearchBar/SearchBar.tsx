@@ -1,17 +1,20 @@
-import { useCallback, useState } from 'react';
-import './SearchBar.css'
+import React, { useCallback, useState } from 'react';
+import './SearchBar.css';
 
-function SearchBar(props) {
+interface SearchBarProps {
+  onSearch: (term: string) => void;
+}
 
-  const [term, setTerm] = useState("");
+const SearchBar: React.FC<SearchBarProps> = (props) => {
+  const [term, setTerm] = useState<string>("");
 
-  const handleTermChange = useCallback((event) => {
+  const handleTermChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setTerm(event.target.value);
   }, []);
 
   const search = useCallback(() => {
     props.onSearch(term);
-  }, [props.onSearch, term]);
+  }, [props, term]);
 
   return (
     <div className="search-bar">
@@ -20,7 +23,7 @@ function SearchBar(props) {
         SEARCH
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;

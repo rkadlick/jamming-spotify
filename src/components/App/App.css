@@ -1,10 +1,16 @@
 .app {
-  height: fit-content;
-  padding: 10rem 0;
+  height: 100%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  overflow: auto; /* Allow scrolling */
+  padding-top: 10rem;
   font-family: 'Karla', sans-serif;
   font-weight: 500;
   color: #fff;
+}
 
+.app::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
 .heading {

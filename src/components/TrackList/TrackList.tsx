@@ -1,25 +1,27 @@
 import React from "react";
-
 import "./TrackList.css";
-
 import Track from "../Track/Track";
+import { TrackType } from '../../types/TrackType';
 
-const TrackList = (props) => {
-  
+interface TrackListProps {
+  tracks: TrackType[];
+  onAdd?: (track: TrackType) => void;
+  isRemoval: boolean;
+  onRemove?: (track: TrackType) => void;
+}
 
+const TrackList: React.FC<TrackListProps> = ({ tracks, onAdd, isRemoval, onRemove }) => {
   return (
     <div className="track-list">
-      {props.tracks.map((track) => {
-        return (
-          <Track
-            track={track}
-            key={track.id}
-            onAdd={props.onAdd}
-            isRemoval={props.isRemoval}
-            onRemove={props.onRemove}
-          />
-        );
-      })}
+      {tracks.map((track) => (
+        <Track
+          track={track}
+          key={track.id}
+          onAdd={onAdd}
+          isRemoval={isRemoval}
+          onRemove={onRemove}
+        />
+      ))}
     </div>
   );
 };

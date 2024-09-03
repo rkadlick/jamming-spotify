@@ -1,44 +1,43 @@
 import React, { useCallback } from "react";
 
 import "./Track.css";
+import { TrackType } from '../../types/TrackType';
 
-const Track = (props) => {
+interface TrackProps {
+  track: TrackType;
+  onAdd?: (track: TrackType) => void;
+  onRemove?: (track: TrackType) => void;
+  isRemoval: boolean;
+}
 
-  const addTrack = useCallback(
-    (event) => {
-      props.onAdd(props.track);
-    },
-    [props.onAdd, props.track]
-  );
+const Track: React.FC<TrackProps> = ({ track, onAdd, onRemove, isRemoval }) => {
+  
+  const addTrack = useCallback(() => {
+    if (onAdd) { // Check if onAdd is defined
+      onAdd(track);
+    }
+  }, [onAdd, track]);
 
-  const removeTrack = useCallback(
-    (event) => {
-      props.onRemove(props.track);
-    },
-    [props.onRemove, props.track]
-  );
+  const removeTrack = useCallback(() => {
+    if (onRemove) { // Check if onAdd is defined
+      onRemove(track);
+    }
+  }, [onRemove, track]);
 
   const renderAction = () => {
-    if (props.isRemoval) {
-      return (
-        <button className="track-action" onClick={removeTrack}>
-          -
-        </button>
-      );
-    }
     return (
-      <button className="track-action" onClick={addTrack}>
-        +
+      <button className="track-action" onClick={isRemoval ? removeTrack : addTrack}>
+        {isRemoval ? '-' : '+'}
       </button>
     );
-  }; 
+  };
 
   return (
     <div className="track">
       <div className="track-information">
-      <h3>{props.track.name}</h3>
+      <h3>{track.name}</h3>
         <p>
-          {props.track.artist} | {props.track.album}
+          {track.artist} | {track.album}
         </p>
       </div>
       {renderAction()}

@@ -1,27 +1,35 @@
 import React, { useCallback } from "react";
-
 import "./Playlist.css";
-
 import TrackList from "../TrackList/TrackList";
+import { TrackType } from '../../types/TrackType';
 
-const Playlist = (props) => {
+// Define the props for the Playlist component
+interface PlaylistProps {
+  playlistName: string;
+  playlistTracks: TrackType[];
+  onNameChange: (name: string) => void;
+  onRemove: (track: TrackType) => void;
+  onSave: () => void;
+}
+
+const Playlist: React.FC<PlaylistProps> = ({ playlistTracks, onNameChange, onRemove, onSave }) => {
+  
   const handleNameChange = useCallback(
-    (event) => {
-      props.onNameChange(event.target.value);
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      onNameChange(event.target.value);
     },
-    [props]
+    [onNameChange]
   );
-
 
   return (
     <div className="playlist">
       <input onChange={handleNameChange} defaultValue={"New Playlist"} />
       <TrackList
-      tracks={props.playlistTracks}
-		  isRemoval={true}
-      onRemove={props.onRemove}
+        tracks={playlistTracks}
+        isRemoval={true}
+        onRemove={onRemove}
       />
-      <button className="playlist-save" onClick={props.onSave}>
+      <button className="playlist-save" onClick={onSave}>
         SAVE TO SPOTIFY
       </button>
     </div>
