@@ -3,7 +3,6 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   overflow: auto; /* Allow scrolling */
-  padding-top: 10rem;
   font-family: 'Karla', sans-serif;
   font-weight: 500;
   color: #fff;
@@ -16,6 +15,7 @@
 .heading {
   display: flex;
   justify-content: center;
+  padding-top: 7rem;
 }
 
 .heading > svg {
@@ -35,7 +35,7 @@
 .app-playlist {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  max-width: 90%;
   gap: 10rem;
   margin: 3rem auto;
 }
