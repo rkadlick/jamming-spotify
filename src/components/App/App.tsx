@@ -15,6 +15,10 @@ const App: React.FC = () => {
   const [playlistTracks, setPlaylistTracks] = useState<TrackType[]>([]);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
+    // New state for loading and confirmation
+    const [isSaving, setIsSaving] = useState(false);
+    const [showConfirmation, setShowConfirmation] = useState(false);
+
   useEffect(() => {
     const authStatus = Spotify.isAuthenticated();
     setIsAuthenticated(authStatus);
@@ -46,10 +50,16 @@ const App: React.FC = () => {
   }, []);
   
   const savePlaylist = useCallback(() => {
+    setIsSaving(true); // Start loading
+
     const trackUris = playlistTracks.map((track) => track.uri);
     Spotify.savePlaylist(playlistName, trackUris).then(() => {
       setPlaylistName("New Playlist");
       setPlaylistTracks([]);
+      setIsSaving(false); // Stop loading
+
+      setShowConfirmation(true); // Show confirmation
+      setTimeout(() => setShowConfirmation(false), 3000); // Hide confirmation after 3 seconds
     });
   }, [playlistName, playlistTracks]);
 
@@ -82,6 +92,13 @@ const App: React.FC = () => {
           </div>
         </>
       )}
+
+    {/* Loading screen */}
+    {isSaving && <div className="loading-screen">Saving...</div>}
+
+    {/* Confirmation Tooltip */}
+    {showConfirmation && <div className="confirmation-tooltip">Playlist saved successfully!</div>}
+
       <button className="made-by" onClick={() => window.open('https://www.ryanismy.name', '_blank')}>
   Created by RK
 </button>
